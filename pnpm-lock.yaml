@@ -1,9 +1,11 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@astrojs/cloudflare': ^1.0.2
   astro: ^1.2.3
 
 dependencies:
+  '@astrojs/cloudflare': 1.0.2
   astro: 1.2.3
 
 packages:
@@ -14,6 +16,12 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.1.1
       '@jridgewell/trace-mapping': 0.3.15
+    dev: false
+
+  /@astrojs/cloudflare/1.0.2:
+    resolution: {integrity: sha512-jkyaqWmMR6uw44wsGaVIBkdLhxxCj8UkH4RYabJRf0wBHw2dZAzjt38rYMLmW/IIWnu7YHFmYlpK5hU/tNA+Ag==}
+    dependencies:
+      esbuild: 0.14.54
     dev: false
 
   /@astrojs/compiler/0.23.5:
