@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;500&display=swap');
+
+:root {
+  --color-primary: #FF7844;
+  --color-secondary: #A64942;
+  --color-tertiary: #53354A;
+  --color-background: #171717;
+  --color-foreground: #EEEEEE;
+
+  color-scheme: light dark;
+
+  font-family: 'Lexend Deca', Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 300;
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
