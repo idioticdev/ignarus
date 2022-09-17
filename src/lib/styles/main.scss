@@ -1,21 +1,21 @@
 :root {
-  --color-primary: #FF7844;
-  --color-secondary: #A64942;
-  --color-tertiary: #53354A;
-  --color-background: #171717;
-  --color-foreground: #EEEEEE;
+    --color-primary: #ff7844;
+    --color-secondary: #a64942;
+    --color-tertiary: #53354a;
+    --color-background: #171717;
+    --color-foreground: #eeeeee;
 
-  color-scheme: light dark;
+    color-scheme: light dark;
 
-  font-family: 'Lexend Deca', Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.4;
-  font-weight: 300;
-  color: var(--color-foreground);
-  background: var(--color-background);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    font-family: 'Lexend Deca', Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 300;
+    color: var(--color-foreground);
+    background: var(--color-background);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
