@@ -5,6 +5,10 @@
     --color-background: #171717;
     --color-foreground: #eeeeee;
 
+    --radius: 8px;
+    --header-height: 64px;
+    --main-height: calc(100vh - 64px);
+
     color-scheme: light dark;
 
     font-family: 'Lexend Deca', Avenir, Helvetica, Arial, sans-serif;
@@ -18,4 +22,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-delay: 0ms !important;
+        animation-duration: 1ms !important;
+    }
 }
