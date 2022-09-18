@@ -4,31 +4,25 @@
     import { supabase } from '$lib/services/supabase'
     import { goto } from '$app/navigation'
     import AppHeader from '$lib/components/app-header.svelte'
-    import Grid from '$lib/components/grid.svelte'
 
     user.set(supabase.auth.user())
 
-    supabase.auth.onAuthStateChange((event, session) => {
-        user.set(session?.user ?? null)
+    supabase.auth.onAuthStateChange(async (event, session) => {
         if (event === 'SIGNED_OUT') {
-            goto('/goodbye')
+            await goto('/goodbye')
         }
+
+        if (event === 'SIGNED_IN') {
+            await goto('/dashboard')
+        }
+
+        user.set(session?.user ?? null)
     })
 </script>
 
 <div class="main-layout">
     <AppHeader />
-    {#if $user}
-        <Grid>
-            <h1>Hello {$user.email}</h1>
-            <p>
-                There is still nothing to see here. I'm encourage by your
-                curiousity. Check back later for changes if you dare.
-            </p>
-        </Grid>
-    {:else}
-        <slot />
-    {/if}
+    <slot />
 </div>
 
 <style>
