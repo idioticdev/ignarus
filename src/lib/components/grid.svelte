@@ -1,8 +1,8 @@
 <script lang="ts">
-    export let tag: string = 'section'
     export let place: 'left' | 'right' | 'center' = 'center'
 
-    $: classes = `grid-${tag} -${place}`
+    $: tag = 'center' ? 'section' : 'aside'
+    $: classes = `grid -${place}`
 </script>
 
 <svelte:element this={tag} class={classes}>
@@ -10,23 +10,23 @@
 </svelte:element>
 
 <style>
-    :global([class^='grid-']) {
+    :global(.grid) {
         border-radius: var(--radius);
         grid-row: 2;
     }
 
-    :global(.grid-section.-center) {
+    :global(.grid.-center) {
         place-self: center;
         grid-column: 3;
         width: 100%;
         height: 100%;
     }
 
-    :global(.grid-aside.-left) {
+    :global(.grid.-left) {
         grid-column: 2;
     }
 
-    :global(.grid-aside.-right) {
+    :global(.grid.-right) {
         grid-column: 4;
     }
 </style>
