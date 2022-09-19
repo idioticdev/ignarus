@@ -1,10 +1,15 @@
 <script>
     import Auth from './auth.svelte'
+    import { user } from '$lib/stores/user-store'
 </script>
 
 <header class="header-panel">
     <a class="brand" href="/"><b>Ignarus</b></a>
     <div class="navigation">
+        {#if $user}
+            <a href="/dashboard">Dashboard</a>
+            <a href="/settings">Settings</a>
+        {/if}
         <Auth />
     </div>
 </header>
