@@ -24,6 +24,13 @@
     -webkit-text-size-adjust: 100%;
 }
 
+body,
+main {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-delay: 0ms !important;
