@@ -100,9 +100,14 @@
             display: none;
 
             @media (min-width: 768px) {
+                display: block;
                 z-index: initial;
                 grid-column: 3;
                 justify-self: end;
+
+                > a {
+                    margin-right: 20px;
+                }
             }
         }
     }
