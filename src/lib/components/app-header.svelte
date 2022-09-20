@@ -4,7 +4,9 @@
 </script>
 
 <header class="header-panel">
-    <a class="brand" href="/"><b>Ignarus</b></a>
+    <div class="brand">
+        <a href="/"><b>Ignarus</b></a>
+    </div>
     <div class="navigation">
         {#if $user}
             <a href="/dashboard">Dashboard</a>
@@ -14,7 +16,7 @@
     </div>
 </header>
 
-<style>
+<style lang="scss">
     .header-panel {
         grid-column: 1 / 6;
         grid-row: 1 / 4;
@@ -23,22 +25,15 @@
         grid-gap: 20px;
         grid-template-columns: 0 1fr 1fr 0;
         align-items: center;
-        border-bottom: solid 1px rgba(255, 255, 255, 0.1);
-    }
+        border-bottom: solid 1px var(--color-border);
 
-    .header-panel > .brand {
-        grid-column: 2;
-        color: var(--color-primary);
-        text-decoration: none;
-    }
+        & > .navigation {
+            grid-column: 3;
+            justify-self: end;
+        }
 
-    .header-panel > .brand:hover {
-        color: var(--color-primary);
-        text-decoration: underline;
-    }
-
-    .header-panel > .navigation {
-        grid-column: 3;
-        justify-self: end;
+        & > .brand {
+            grid-column: 2;
+        }
     }
 </style>
