@@ -1,9 +1,12 @@
+@use './button';
+
 :root {
     --color-primary: #ff7844;
     --color-secondary: #a64942;
     --color-tertiary: #53354a;
     --color-background: #171717;
     --color-foreground: #eeeeee;
+    --color-border: #ffffff22;
 
     --radius: 8px;
     --header-height: 64px;
@@ -29,6 +32,15 @@ main {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+}
+
+a {
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: inherit;
+}
+a:hover {
+    text-decoration: underline;
 }
 
 @media (prefers-reduced-motion: reduce) {
