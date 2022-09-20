@@ -29,8 +29,16 @@
     .main-layout {
         display: grid;
         grid-gap: 12px;
-        grid-template-columns: 0 300px 1fr 300px 0;
+        grid-template-columns: 0 1fr 0;
         grid-template-rows: var(--header-height) 1fr auto;
         height: 100vh;
+    }
+
+    @media (min-width: 768px) {
+        .main-layout {
+            grid-gap: 12px;
+            grid-template-columns: 0 300px 1fr 300px 0;
+            grid-template-rows: var(--header-height) 1fr auto;
+        }
     }
 </style>

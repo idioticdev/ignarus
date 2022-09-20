@@ -9,24 +9,27 @@
     <slot />
 </svelte:element>
 
-<style>
-    :global(.grid) {
+<style lang="scss" global>
+    .grid {
         border-radius: var(--radius);
         grid-row: 2;
-    }
 
-    :global(.grid.-center) {
-        place-self: center;
-        grid-column: 3;
-        width: 100%;
-        height: 100%;
-    }
+        &.-center {
+            place-self: center;
+            grid-column: 2;
+            width: 100%;
+            height: 100%;
 
-    :global(.grid.-left) {
-        grid-column: 2;
-    }
+            @media (min-width: 768px) {
+                grid-column: 3;
+            }
+        }
 
-    :global(.grid.-right) {
-        grid-column: 4;
+        &.-left {
+            grid-column: 2;
+        }
+        &.-right {
+            grid-column: 4;
+        }
     }
 </style>
