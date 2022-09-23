@@ -11,7 +11,6 @@
 
 <style lang="scss" global>
     .grid {
-        border-radius: var(--radius);
         grid-row: 2;
 
         &.-center {
