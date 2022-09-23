@@ -2,10 +2,18 @@
     import Auth from './auth.svelte'
     import { user } from '$lib/stores/user-store'
     import { browser } from '$app/environment'
+    import { page } from '$app/stores'
 
     let nav: HTMLElement
     let header: HTMLElement
-    let is_nav_open = false
+    let is_mobile_nav_open = false
+
+    const routes = [
+        { name: 'Dashboard', path: '/dashboard' },
+        { name: 'Settings', path: '/settings' }
+    ]
+
+    $: path = $page.url.pathname
 
     const hoist_nav = () => {
         if (browser) {
@@ -20,12 +28,12 @@
                     easing: 'ease-in-out'
                 }
             )
-            is_nav_open = true
+            is_mobile_nav_open = true
         }
     }
 
     const return_nav = () => {
-        if (browser) {
+        if (browser && is_mobile_nav_open) {
             nav.animate(
                 [
                     { transform: 'scale(1)', opacity: 1 },
@@ -37,7 +45,7 @@
                 }
             ).onfinish = () => {
                 header.appendChild(nav)
-                is_nav_open = false
+                is_mobile_nav_open = false
             }
         }
     }
@@ -47,15 +55,13 @@
     <div class="brand">
         <a href="/"><b>Ignarus</b></a>
     </div>
-    <div
-        class="main-nav"
-        class:-open={is_nav_open}
-        bind:this={nav}
-        on:click={return_nav}
-    >
+    <div class="main-nav" bind:this={nav} on:click={return_nav}>
         {#if $user}
-            <a href="/dashboard">Dashboard</a>
-            <a href="/settings">Settings</a>
+            {#each routes as route}
+                <a href={route.path} class:active={path === route.path}
+                    >{route.name}</a
+                >
+            {/each}
         {/if}
         <Auth />
     </div>
@@ -74,6 +80,10 @@
         grid-template-columns: 0 auto 1fr 0;
         align-items: center;
         border-bottom: solid 1px var(--color-border);
+
+        a {
+            color: var(--color-foreground);
+        }
 
         @media (min-width: 768px) {
             grid-column: 1 / 6;
@@ -95,24 +105,28 @@
                 display: none;
             }
         }
+    }
 
-        & > .main-nav {
-            display: none;
+    .main-nav {
+        display: none;
 
-            @media (min-width: 768px) {
-                display: block;
-                z-index: initial;
-                grid-column: 3;
-                justify-self: end;
+        @media (min-width: 768px) {
+            display: block;
+            z-index: initial;
+            grid-column: 3;
+            justify-self: end;
 
-                > a {
-                    margin-right: 20px;
+            > a {
+                margin-right: 20px;
+
+                &.active {
+                    color: var(--color-primary);
                 }
             }
         }
     }
 
-    .main-nav.-open {
+    .main-layout > .main-nav {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -120,12 +134,11 @@
         position: fixed;
         inset: 0;
         transform-origin: top right;
-        background: var(--color-tertiary);
+        background: var(--color-secondary);
         z-index: 1;
         border-radius: var(--radius);
 
         > *:not([button]) {
-            margin-bottom: 1em;
             padding: 1em;
         }
     }
