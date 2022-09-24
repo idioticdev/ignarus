@@ -120,7 +120,7 @@
                 margin-right: 20px;
 
                 &.active {
-                    color: var(--color-primary);
+                    font-weight: 700;
                 }
             }
         }

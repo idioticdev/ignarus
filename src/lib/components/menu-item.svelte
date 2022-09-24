@@ -12,27 +12,41 @@
     </svelte:element>
 </li>
 
-<style lang="scss">
+<style lang="scss" global>
     .menu-item {
         display: flex;
         padding: 0;
         margin: 0;
         list-style: none;
 
+        + .menu-item {
+            margin-top: 12px;
+        }
+
         > .link {
             color: var(--color-foreground);
             width: 100%;
             display: flex;
             padding: 0.6em 1.2em;
-            border: solid 2px transparent;
+            border: none;
             border-radius: var(--radius);
             font-weight: 300;
             cursor: pointer;
-            transition: all 300ms ease-in-out;
+            background-position-x: 0;
+            background-size: 200%;
+            background-image: linear-gradient(
+                to right,
+                transparent 0,
+                transparent 50%,
+                var(--color-border) 50%,
+                var(--color-border) 100%
+            );
+
+            transition: background 300ms ease-in-out;
 
             &:hover {
                 text-decoration: none;
-                box-shadow: inset 0 0 0 2px var(--color-border);
+                background-position-x: -100%;
             }
         }
     }
