@@ -13,8 +13,6 @@
         { name: 'Settings', path: '/settings' }
     ]
 
-    $: path = $page.url.pathname
-
     const hoist_nav = () => {
         if (browser) {
             const main = document.querySelector('.main-layout')!
@@ -58,7 +56,9 @@
     <div class="main-nav" bind:this={nav} on:click={return_nav}>
         {#if $user}
             {#each routes as route}
-                <a href={route.path} class:active={path === route.path}
+                <a
+                    href={route.path}
+                    class:active={$page.url.pathname.startsWith(route.path)}
                     >{route.name}</a
                 >
             {/each}

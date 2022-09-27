@@ -1,12 +1,16 @@
 <script lang="ts">
     export let heading = false
+    export let active = false
+    export let to = '#'
 </script>
 
 <li class="menu-item">
     <svelte:element
         this={heading ? 'h3' : 'a'}
         class:heading
+        class:active
         class:link={!heading}
+        href={to}
     >
         <slot />
     </svelte:element>
