@@ -1,0 +1,8 @@
+@use './control';
+input {
+    @extend %control;
+    &:focus,
+    &:focus-visible {
+        outline: solid 2px var(--color-primary);
+    }
+}
